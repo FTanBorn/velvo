@@ -156,14 +156,22 @@ shot_page('6. Sub Page Description', '6-3 Series detail', 'a-series', [
   'Play: plays the next episode to watch (here S1 E1).', 'Add to / remove from My List', 'Season selector', 'Episodes: OK plays the episode; a bar shows the watched part.'],
   ['The audio and subtitle choice made in one episode is applied automatically to the next episodes of the same series.'])
 
-# 6-4 Oynatıcı
-s = page('6. Sub Page Description', '6-4 Player')
-ph = s.shapes.add_shape(MSO_SHAPE.RECTANGLE, Inches(0.4), Inches(1.25), Inches(7.6), Inches(4.275)); ph.fill.solid(); ph.fill.fore_color.rgb = RGBColor(0x11, 0x11, 0x16); ph.line.color.rgb = PINK
-ph.text_frame.text = '[Player screenshot from the TV]'; ph.text_frame.paragraphs[0].font.color.rgb = RGBColor(0x99, 0x99, 0xA0); ph.text_frame.paragraphs[0].font.size = Pt(16); ph.text_frame.paragraphs[0].alignment = PP_ALIGN.CENTER
-table(s, 8.25, 1.25, 4.7, [(1, 'Rewind 10 s'), (2, 'Play / Pause'), (3, 'Forward 10 s'), (4, 'Audio: list of audio tracks'),
-  (5, 'Subtitles: Off + subtitle tracks, and Size, Color, Position (◀ ▶)'), (6, 'Next episode (series only)'), (7, 'Seek bar with elapsed and total time')], size=10.5)
-text(s, 0.4, 5.65, 12.5, 1.7, ['Keys: any key shows the control bar · OK on ⏯ pauses/resumes · ◀ ▶ seek 10 s while the bar is hidden · YELLOW = next audio track · BLUE = next subtitle track · PLAY, PAUSE, STOP, FF, REW media keys · CH+ / CH− change channel in live TV.',
-  'BACK closes an open popup first, then leaves the player and returns to the previous page.'], 11, GRAY)
+# 6-4 Oynatıcı (TV'den alınmış görüntü)
+shot_page('6. Sub Page Description', '6-4 Player', 'a-player', [
+  'Rewind 10 s', 'Play / Pause', 'Forward 10 s', 'Audio: list of audio tracks in the video',
+  'Subtitles button: shows the selected subtitle language', 'Subtitle list: Off + embedded subtitle tracks (✓ = selected); below the list: Size, Color, Position (◀ ▶)',
+  'Seek bar with elapsed and remaining time'],
+  ['Screenshot taken on an LG 55SK7900 while playing "Sintel" from the demo playlist. Series episodes also show a "Next episode" button.',
+   'Keys: any key shows the control bar · OK on ⏯ pauses/resumes · ◀ ▶ seek 10 s while the bar is hidden · YELLOW = next audio track · BLUE = next subtitle track · PLAY, PAUSE, STOP, FF, REW · CH+ / CH− change channel in live TV · BACK closes an open popup first, then leaves the player.'])
+
+# 6-4 Altyazı ekranda
+s = page('6. Sub Page Description', '6-4 Player: subtitles on screen')
+s.shapes.add_picture('%s/tv-sub-en.png' % UX, Inches(0.4), Inches(1.3), width=Inches(6.2))
+s.shapes.add_picture('%s/tv-sub-es.png' % UX, Inches(6.75), Inches(1.3), width=Inches(6.2))
+text(s, 0.4, 4.9, 6.2, 0.5, 'English subtitles (selected automatically from the preferred language)', 12, GRAY)
+text(s, 6.75, 4.9, 6.2, 0.5, 'After pressing BLUE: Spanish subtitles, with an on-screen confirmation', 12, GRAY)
+text(s, 0.4, 5.6, 12.5, 1.5, ['Both screenshots were taken on an LG 55SK7900 (2018).',
+  'The subtitle and audio choice made in a series episode is applied automatically to the next episodes.'], 12, GRAY)
 
 # 6-5 .. 6-7
 shot_page('6. Sub Page Description', '6-5 Live TV', 'a-live', ['Channel categories', 'Channels: OK plays the channel. Channels without a logo show short initials.'],
