@@ -27,7 +27,7 @@ Velvo ücretsizdir. Reklam, üyelik ya da takip yoktur.
   - Altyazı görünümü: boyut, renk, konum
   - Dizi başına ses/altyazı hafızası: seçimin sonraki bölümlerde otomatik uygulanır
 - **TV'ye göre tasarım**:
-  - Netflix tarzı, dinamik satırlı ana sayfa
+  - Sinema tarzı, dinamik satırlı ana sayfa
   - Filmler, sezon ve bölümleriyle diziler, canlı TV, arama, Listem ve "izlemeye devam et"
   - Magic Remote ve normal kumandayla çalışır
 - **Profiller**: herkesin kendi dil tercihleri, izleme ilerlemesi ve listesi
@@ -37,17 +37,19 @@ Velvo ücretsizdir. Reklam, üyelik ya da takip yoktur.
 
 **Velvo yalnızca bir medya oynatıcıdır. Hiçbir kanal, film, dizi ya da liste içermez, sağlamaz, satmaz ve bunlara bağlantı vermez.**
 
-Kullanma hakkına sahip olduğun bir sağlayıcıdan kendi listeni edinmen gerekir. Velvo projesi korsanlığı desteklemez. Hak sahibinin izni olmadan içerik izlemek ülkende yasa dışı olabilir; ne oynattığının sorumluluğu sana aittir. Projeyle gelen [demo liste](demo/velvo-demo.m3u) yalnızca açık lisanslı filmler ve herkese açık test yayınları içerir.
+Kullanma hakkına sahip olduğun bir sağlayıcıdan kendi listeni edinmen gerekir. Velvo projesi korsanlığı desteklemez. Hak sahibinin izni olmadan içerik izlemek ülkende yasa dışı olabilir; ne oynattığının sorumluluğu sana aittir. Projeyle gelen [demo liste](docs/demo.m3u) yalnızca açık lisanslı filmler ve herkese açık test yayınları içerir.
 
 ## Demo listeyle dene
 
 Giriş ekranında **M3U**'yu seç ve şu adresi gir:
 
 ```
-https://raw.githubusercontent.com/FTanBorn/velvo/main/demo/velvo-demo.m3u
+https://ftanborn.github.io/velvo/demo.m3u
 ```
 
 Demo listedeki *Sintel* filminde 1 ses ve 10 gömülü altyazı dili var. Altyazı değiştirmeyi hemen deneyebilirsin.
+
+Velvo ayrıca M3U listelerinde isteğe bağlı iki alanı okur: `tvg-backdrop` (ana sayfa ve detay için yatay görsel) ve `tvg-plot` (kısa özet). Nasıl kullanıldıklarını demo listede görebilirsin.
 
 ## TV'ye kurulum (Geliştirici Modu)
 
@@ -102,7 +104,7 @@ Geliştirici Modu oturumu yaklaşık 50 saat sonra biter. Uygulamanın silinmeme
 - TV'de hata ayıklamak için şunu çalıştır:
 
 ```bash
-ares-inspect --device tv --app com.furkan.iptvtest --open
+ares-inspect --device tv --app io.github.ftanborn.velvo --open
 ```
 
 ## Çeviriler

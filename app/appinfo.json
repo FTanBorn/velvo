@@ -1,7 +1,7 @@
 {
-  "id": "com.furkan.iptvtest",
-  "version": "0.8.0",
-  "vendor": "Furkan",
+  "id": "io.github.ftanborn.velvo",
+  "version": "0.9.0",
+  "vendor": "FTanBorn",
   "type": "web",
   "main": "index.html",
   "title": "Velvo",

@@ -300,11 +300,13 @@ var App = (function () {
           else if (ch === ',' && !inQ) { idx = k; break; }
         }
         var attrs = parseAttrs(idx >= 0 ? l.slice(0, idx) : l);
-        cur = { name: (idx >= 0 ? l.slice(idx + 1).trim() : '') || attrs['tvg-name'] || '', logo: attrs['tvg-logo'] || '', group: attrs['group-title'] || '' };
+        // tvg-backdrop ve tvg-plot standart dışı, isteğe bağlı Velvo alanları (yatay görsel ve özet)
+        cur = { name: (idx >= 0 ? l.slice(idx + 1).trim() : '') || attrs['tvg-name'] || '', logo: attrs['tvg-logo'] || '', group: attrs['group-title'] || '',
+          backdrop: attrs['tvg-backdrop'] || '', plot: attrs['tvg-plot'] || '' };
       } else if (l.indexOf('#EXTGRP:') === 0) {
         if (cur && !cur.group) cur.group = l.slice(8).trim();
       } else if (l.charAt(0) !== '#') {
-        var e = cur || { name: decodeURIComponent(l.split('?')[0].split('/').pop() || l), logo: '', group: '' };
+        var e = cur || { name: decodeURIComponent(l.split('?')[0].split('/').pop() || l), logo: '', group: '', backdrop: '', plot: '' };
         var c = classify(e.name, l);
         e.url = l;
         e.type = c.type;
@@ -341,9 +343,9 @@ var App = (function () {
         var sname = (m[1] || e.name).trim(), season = +m[2], num = +m[3];
         var key = 's' + A.norm(sname + '|' + cat).replace(/[^a-z0-9]+/g, '-');
         if (!seriesByKey[key]) {
-          seriesByKey[key] = { series_id: key, name: sname, cover: e.logo, category_id: cat, last_modified: order, backdrop_path: [] };
+          seriesByKey[key] = { series_id: key, name: sname, cover: e.logo, category_id: cat, last_modified: order, backdrop_path: e.backdrop ? [e.backdrop] : [], plot: e.plot };
           D.series.push(seriesByKey[key]);
-          D.seriesInfo[key] = { info: { name: sname, cover: e.logo }, episodes: {} };
+          D.seriesInfo[key] = { info: { name: sname, cover: e.logo, backdrop_path: e.backdrop ? [e.backdrop] : [], plot: e.plot }, episodes: {} };
         }
         var eps = D.seriesInfo[key].episodes;
         (eps[season] = eps[season] || []).push({ id: e.id, episode_num: num, title: 'S' + season + 'E' + num + ' - ' + (m[4] || 'Bölüm ' + num), container_extension: e.ext, info: {} });
@@ -394,7 +396,7 @@ var App = (function () {
         case 'get_series': cb(null, byCat(D.series)); return;
         case 'get_vod_info':
           e = D.byId[params.vod_id];
-          cb(e ? null : 'Bulunamadı', e && { info: { name: e.name, cover_big: e.logo }, movie_data: { stream_id: e.id, name: e.name, container_extension: e.ext, category_id: D.movie.filter(function (x) { return x.stream_id === e.id; })[0].category_id } });
+          cb(e ? null : 'Bulunamadı', e && { info: { name: e.name, cover_big: e.logo, backdrop_path: e.backdrop ? [e.backdrop] : [], plot: e.plot }, movie_data: { stream_id: e.id, name: e.name, container_extension: e.ext, category_id: D.movie.filter(function (x) { return x.stream_id === e.id; })[0].category_id } });
           return;
         case 'get_series_info': cb(D.seriesInfo[params.series_id] ? null : 'Bulunamadı', D.seriesInfo[params.series_id]); return;
         default: cb('Desteklenmeyen işlem');
@@ -726,9 +728,8 @@ var App = (function () {
     if (!keyboardOpen && document.activeElement && document.activeElement.tagName === 'INPUT') document.activeElement.blur();
   }, false);
 
-  document.addEventListener('keydown', function (e) {
-    if (keyboardOpen) return;
-    var k = e.keyCode, top = R.top();
+  function handleKey(k, e) {
+    var top = R.top();
     var def = top && A.screens[top.name];
     if (def && def.onKey && def.onKey(k, e, top) === true) { e.preventDefault(); return; }
     if (k === KEY.BACK || k === KEY.ESC) { e.preventDefault(); R.back(); return; }
@@ -739,6 +740,20 @@ var App = (function () {
       if (c && c.tagName === 'INPUT') { c.focus(); return; }
       if (c && c.onok) { e.preventDefault(); c.onok(); }
     }
+  }
+  document.addEventListener('keydown', function (e) {
+    if (!keyboardOpen) handleKey(e.keyCode, e);
+  }, false);
+
+  // Magic Remote tekerleği: yukarı/aşağı yön tuşu gibi davranır
+  var wheelAt = 0;
+  document.addEventListener('onwheel' in document ? 'wheel' : 'mousewheel', function (e) {
+    if (keyboardOpen) return;
+    var dy = e.deltaY != null ? e.deltaY : -(e.wheelDelta || 0), now = Date.now();
+    e.preventDefault();
+    if (!dy || now - wheelAt < 150) return;
+    wheelAt = now;
+    handleKey(dy > 0 ? KEY.DOWN : KEY.UP, e);
   }, false);
 
   // Magic Remote imleci: üzerine gelince odakla, tıklayınca seç

@@ -23,7 +23,7 @@ Velvo is free. It has no ads, no accounts and no tracking.
   - Subtitle style: size, color and position
   - The app remembers your audio and subtitle choice for each series, so the next episode starts the same way
 - **Built for the TV**:
-  - Netflix-style home screen with dynamic rows
+  - Cinematic home screen with dynamic rows
   - Movies, series with seasons and episodes, live TV, search, My List and "continue watching"
   - Works with both the Magic Remote and the standard remote
 - **Profiles**: each person has their own language preferences, watch progress and list
@@ -33,17 +33,19 @@ Velvo is free. It has no ads, no accounts and no tracking.
 
 **Velvo is only a media player. It does not include, provide, sell or link to any channels, movies, series or playlists.**
 
-You need your own playlist from a provider you are legally entitled to use. The Velvo project does not endorse piracy. Watching content without the rights holder's permission may be illegal where you live, and you are responsible for what you play. The bundled [demo playlist](demo/velvo-demo.m3u) contains only openly licensed films and public test streams.
+You need your own playlist from a provider you are legally entitled to use. The Velvo project does not endorse piracy. Watching content without the rights holder's permission may be illegal where you live, and you are responsible for what you play. The bundled [demo playlist](docs/demo.m3u) contains only openly licensed films and public test streams.
 
 ## Try it with the demo playlist
 
 On the login screen, choose **M3U** and enter:
 
 ```
-https://raw.githubusercontent.com/FTanBorn/velvo/main/demo/velvo-demo.m3u
+https://ftanborn.github.io/velvo/demo.m3u
 ```
 
 *Sintel* in the demo list has one audio track and ten embedded subtitle languages, so you can test subtitle switching right away.
+
+Velvo also reads two optional M3U attributes, `tvg-backdrop` (a landscape image for the home screen and detail page) and `tvg-plot` (a short summary). The demo playlist shows how to use them.
 
 ## Install on your TV (Developer Mode)
 
@@ -98,7 +100,7 @@ The Developer Mode session expires after about 50 hours. Use *Extend* in the Dev
 - For on-TV debugging, run:
 
 ```bash
-ares-inspect --device tv --app com.furkan.iptvtest --open
+ares-inspect --device tv --app io.github.ftanborn.velvo --open
 ```
 
 ```
@@ -111,9 +113,9 @@ app/
   js/player.js      track detection (MKV), language preferences, player screen
   js/screens.js     home, detail, browse, live TV, search, settings, login
   lib/webOSTV.js    LG webOSTV.js library (Apache-2.0)
-demo/               legal demo playlist
 logo/               logo sources (SVG) and exported PNGs
-docs/privacy.html   privacy policy (GitHub Pages)
+docs/               GitHub Pages: privacy policy, demo playlist (demo.m3u) and its images
+store/              LG Content Store materials: listing text, screenshots, UX scenario, self-checklist
 ```
 
 ## Translations

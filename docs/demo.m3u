@@ -1,0 +1,20 @@
+#EXTM3U
+# Velvo demo playlist: only openly licensed films and public test streams.
+# Sintel (2010), Tears of Steel (2012), Big Buck Bunny (2008) (c) Blender Foundation, CC BY 3.0 (https://www.blender.org/about/projects/)
+# Posters: Wikimedia Commons (CC BY 3.0). Backdrops: frames from the films (CC BY 3.0). See THIRD_PARTY_NOTICES.md.
+# Live test streams: Big Buck Bunny HLS by Mux, Tears of Steel multi-language HLS by Unified Streaming, BipBop by Apple.
+# tvg-backdrop and tvg-plot are optional Velvo attributes (landscape image and short summary).
+#EXTINF:-1 group-title="Demo · Live test streams",Big Buck Bunny (HLS)
+https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
+#EXTINF:-1 group-title="Demo · Live test streams",Tears of Steel (multi-language HLS)
+https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8
+#EXTINF:-1 group-title="Demo · Live test streams",Apple BipBop (HLS with subtitles)
+https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8
+#EXTINF:-1 tvg-logo="https://ftanborn.github.io/velvo/demo/poster-sintel.jpg" tvg-backdrop="https://ftanborn.github.io/velvo/demo/backdrop-sintel.jpg" tvg-plot="A lonely young woman searches for the baby dragon she once rescued. Open movie by the Blender Foundation, with subtitles in 10 languages." group-title="Open Movies (Blender, CC BY)",Sintel (2010)
+https://download.blender.org/durian/movies/Sintel.2010.1080p.mkv
+#EXTINF:-1 tvg-logo="https://ftanborn.github.io/velvo/demo/poster-tos.jpg" tvg-backdrop="https://ftanborn.github.io/velvo/demo/backdrop-tos.jpg" tvg-plot="In a future Amsterdam, a group of scientists tries to save the world from destructive robots. Open movie by the Blender Foundation." group-title="Open Movies (Blender, CC BY)",Tears of Steel (2012)
+https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov
+#EXTINF:-1 tvg-logo="https://ftanborn.github.io/velvo/demo/poster-blender.jpg" tvg-backdrop="https://ftanborn.github.io/velvo/demo/backdrop-blender.jpg" tvg-plot="Short films made by the Blender Foundation with free and open-source software, released under Creative Commons." group-title="Open Movie Series (demo)",Blender Open Movies S01E01 - Sintel
+https://download.blender.org/durian/movies/Sintel.2010.1080p.mkv
+#EXTINF:-1 tvg-logo="https://ftanborn.github.io/velvo/demo/poster-blender.jpg" group-title="Open Movie Series (demo)",Blender Open Movies S01E02 - Tears of Steel
+https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov

@@ -573,7 +573,8 @@
           eps.forEach(function (e) {
             var ep = A.progress.get('e' + e.id);
             var pct = ep && ep.dur ? Math.round(ep.t / ep.dur * 100) : 0;
-            var img = A.img(e.img, 'w185');
+            // bölüm görseli yoksa dizinin yatay görseli
+            var img = A.img(e.img, 'w185') || A.img(s.backdrop, 'w300');
             var card = h('div', 'ep',
               '<div class="im"' + (img ? ' data-bg="' + esc(img) + '"' : '') + '></div><div class="tx">' +
               '<div class="tt nt">' + e.num + '. ' + esc(e.title) + '</div><div class="du">' + esc(A.fmtDuration(e.durSec || e.dur)) + '</div>' +
@@ -1037,7 +1038,7 @@
           panel.appendChild(h('div', 'empty', 'Hesap bilgileri bu TV\'deki tüm profillerde ortak kullanılır.'));
         } else {
           ttl.textContent = 'Hakkında';
-          panel.appendChild(h('div', 'kv', '<div><b>Uygulama</b><span>Velvo · sürüm 0.8</span></div>' +
+          panel.appendChild(h('div', 'kv', '<div><b>Uygulama</b><span>Velvo · sürüm 0.9</span></div>' +
             '<div><b>Not</b><span>Bu uygulama içerik sağlamaz; kendi IPTV hesabınla çalışır.</span></div>' +
             '<div><b>Kaynak kodu</b><span class="nt">github.com/FTanBorn/velvo</span></div>' +
             '<div><b>Lisans</b><span class="nt">GPL-3.0</span></div>' +
@@ -1064,7 +1065,7 @@
       var edit = !!(p && p.edit);
       entry.state = entry.state || { mode: c.type === 'm3u' ? 'm3u' : 'xtream' };
       var mode = entry.state.mode;
-      el.innerHTML = '<div class="login"><div style="width:84px; height:84px; border-radius:22px; background:#e6005c; font-size:50px; font-weight:900; text-align:center; line-height:84px; margin-bottom:30px">V</div>' +
+      el.innerHTML = '<div class="login"><div class="login-logo" style="margin-bottom:30px">' + LOGO_MARK + '</div>' +
         '<h1 class="t-l">' + (edit ? 'IPTV hesabını düzenle' : 'IPTV hesabını bağla') + '</h1>' +
         '<div class="modes" style="margin:22px 0 6px"></div>' +
         (mode === 'm3u'

@@ -68,6 +68,7 @@ svg { width: 1.1em; height: 1.1em; vertical-align: middle; }
 #rail.open { width: 400px; background: linear-gradient(90deg, rgba(10,11,15,.98) 70%, rgba(10,11,15,0)); }
 #rail .logo { width: 64px; height: 64px; text-align: center; margin: 0 0 46px 28px; }
 #rail .logo svg { display: inline-block; width: 50px; height: 64px; }
+.login-logo svg { display: block; width: 66px; height: 84px; }
 #rail .ri { height: 72px; margin: 0 0 14px 24px; border-radius: 18px; color: #9ca2ad; white-space: nowrap; overflow: hidden; width: 72px; transition: width .2s; }
 #rail.open .ri { width: 330px; }
 #rail .ri svg { width: 38px; height: 38px; margin: 17px 17px; vertical-align: top; }
