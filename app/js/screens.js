@@ -1038,7 +1038,7 @@
           panel.appendChild(h('div', 'empty', 'Hesap bilgileri bu TV\'deki tüm profillerde ortak kullanılır.'));
         } else {
           ttl.textContent = 'Hakkında';
-          panel.appendChild(h('div', 'kv', '<div><b>Uygulama</b><span>Velvo · sürüm 0.9</span></div>' +
+          panel.appendChild(h('div', 'kv', '<div><b>Uygulama</b><span>Velvo · sürüm 1.0</span></div>' +
             '<div><b>Not</b><span>Bu uygulama içerik sağlamaz; kendi IPTV hesabınla çalışır.</span></div>' +
             '<div><b>Kaynak kodu</b><span class="nt">github.com/FTanBorn/velvo</span></div>' +
             '<div><b>Lisans</b><span class="nt">GPL-3.0</span></div>' +
