@@ -1,0 +1,14 @@
+{
+  "id": "com.furkan.iptvtest",
+  "version": "0.8.0",
+  "vendor": "Furkan",
+  "type": "web",
+  "main": "index.html",
+  "title": "Velvo",
+  "icon": "icon.png",
+  "largeIcon": "largeIcon.png",
+  "splashBackground": "splash.png",
+  "iconColor": "#1c0812",
+  "resolution": "1920x1080",
+  "disableBackHistoryAPI": true
+}

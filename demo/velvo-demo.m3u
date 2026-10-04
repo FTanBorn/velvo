@@ -1,0 +1,20 @@
+#EXTM3U
+# Velvo demo playlist — only openly licensed films and public test streams.
+# Sintel (2010) and Tears of Steel (2012) © Blender Foundation, licensed CC BY 3.0 (https://www.blender.org/about/projects/)
+# Big Buck Bunny (2008) © Blender Foundation, CC BY 3.0 — HLS test stream by Mux (test-streams.mux.dev)
+# Tears of Steel multi-language HLS — Unified Streaming public demo
+# BipBop — Apple HLS example stream
+#EXTINF:-1 group-title="Demo · Live test streams",Big Buck Bunny (HLS)
+https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8
+#EXTINF:-1 group-title="Demo · Live test streams",Tears of Steel (multi-language HLS)
+https://demo.unified-streaming.com/k8s/features/stable/video/tears-of-steel/tears-of-steel.ism/.m3u8
+#EXTINF:-1 group-title="Demo · Live test streams",Apple BipBop (HLS with subtitles)
+https://devstreaming-cdn.apple.com/videos/streaming/examples/img_bipbop_adv_example_ts/master.m3u8
+#EXTINF:-1 group-title="Open Movies (Blender, CC BY)",Sintel (2010)
+https://download.blender.org/durian/movies/Sintel.2010.1080p.mkv
+#EXTINF:-1 group-title="Open Movies (Blender, CC BY)",Tears of Steel (2012)
+https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov
+#EXTINF:-1 group-title="Open Movie Series (demo)",Blender Open Movies S01E01 - Sintel
+https://download.blender.org/durian/movies/Sintel.2010.1080p.mkv
+#EXTINF:-1 group-title="Open Movie Series (demo)",Blender Open Movies S01E02 - Tears of Steel
+https://download.blender.org/demo/movies/ToS/tears_of_steel_720p.mov

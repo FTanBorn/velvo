@@ -1,0 +1,17 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;background:transparent;overflow:hidden}
+#icon img{display:block}
+#splash{width:1920px;height:1080px;background:radial-gradient(ellipse at 50% 45%,#4a1230 0%,#24091a 45%,#12060c 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:"Avenir Next","Helvetica Neue",sans-serif;color:#fff}
+#splash img{width:250px;height:325px}
+#splash .w{font-size:132px;font-weight:700;letter-spacing:-2px;margin-top:34px;line-height:1}
+#splash .t{font-size:34px;font-weight:500;opacity:.6;margin-top:22px;letter-spacing:.5px}
+#social{width:1280px;height:640px;background:radial-gradient(ellipse at 30% 50%,#4a1230 0%,#1a0712 60%,#0e050a 100%);display:flex;align-items:center;font-family:"Avenir Next","Helvetica Neue",sans-serif;color:#fff}
+#social img{width:300px;height:300px;margin:0 70px 0 130px;border-radius:66px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+#social .w{font-size:120px;font-weight:700;letter-spacing:-2px;line-height:1}
+#social .t{font-size:34px;font-weight:500;opacity:.75;margin-top:18px;max-width:640px;line-height:1.3}
+</style></head><body><script>
+var q = location.hash.slice(1).split('-'), kind = q[0], size = +q[1];
+if (kind === 'icon') document.write('<div id="icon"><img src="velvo-icon.svg" width="' + size + '" height="' + size + '"></div>');
+if (kind === 'splash') document.write('<div id="splash"><img src="velvo-mark.svg"><div class="w">velvo</div><div class="t">subtitles &amp; audio in your language</div></div>');
+if (kind === 'social') document.write('<div id="social"><img src="velvo-icon.svg"><div><div class="w">velvo</div><div class="t">Free, open-source IPTV player for LG webOS TVs. Choose subtitles &amp; audio language.</div></div></div>');
+</script></body></html>
