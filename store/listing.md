@@ -1,5 +1,7 @@
 # LG Content Store listing
 
+Submitted to LG Seller Lounge on 2026-10-04 (app no. 1330767, version 1.0.0).
+
 Text to paste into LG Seller Lounge. LG requires an English title and description for apps sold in several regions. The Turkish version is the localized text for Turkey.
 
 ## Basic info
@@ -8,14 +10,16 @@ Text to paste into LG Seller Lounge. LG requires an English title and descriptio
 |---|---|
 | App title | Velvo |
 | App ID | io.github.ftanborn.velvo |
-| Category | Entertainment |
+| Category | Entertainment / Movie |
 | Price | Free (no in-app purchases, no ads) |
-| Age rating | The lowest rating the form offers. The app ships no content of its own; the demo list contains only openly licensed Blender Foundation films. |
+| Age rating | 12+ (the demo films contain fantasy and sci-fi action) |
 | Supported languages | English, Turkish |
+| Service countries | Türkiye (first release) |
+| Platforms | webOS TV 2018 and later (SDK 4.0.0), 1920x1080 package = UHD models only |
 | Privacy policy | https://ftanborn.github.io/velvo/privacy.html |
 | Source code | https://github.com/FTanBorn/velvo |
-| Support contact | *(support e-mail address)* |
-| Keywords | IPTV player, M3U, Xtream Codes, subtitles, audio language, video player, open source |
+| Support contact | https://github.com/FTanBorn/velvo/issues |
+| Tag keywords | Velvo IPTV player M3U Xtream subtitles audio language video player open source altyazı oynatıcı (spaces only; LG rejects commas and other special characters) |
 
 ## English
 
